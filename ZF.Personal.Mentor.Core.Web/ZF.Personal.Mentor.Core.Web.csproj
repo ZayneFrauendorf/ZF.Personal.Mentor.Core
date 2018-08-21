@@ -1,0 +1,23 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+    <UserSecretsId>aspnet-ZF.Personal.Mentor.Core.Web-923FDFB0-9534-4BEF-9DA2-310A32542D7B</UserSecretsId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.App" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.1.1" PrivateAssets="All" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ZF.Personal.Mentor.Core.Data\ZF.Personal.Mentor.Core.Data.csproj" />
+    <ProjectReference Include="..\ZF.Personal.Mentor.Core.Domain\ZF.Personal.Mentor.Core.Domain.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Areas\Identity\Services\" />
+    <Folder Include="wwwroot\lib\" />
+  </ItemGroup>
+
+</Project>
