@@ -1,27 +1,48 @@
 ﻿@model ZF.Personal.Mentor.Core.Web.ViewModels.MentorListViewModel
-
+@using Microsoft.AspNetCore.Authorization
+@inject IAuthorizationService AuthorizationService
 @{
     ViewData["Title"] = "Index";
 }
+<div class="mentor-index-ctr">
+    <div class="mentor-index-content">
+        @*<h2>Our Mentors</h2>*@
 
-<h2>Our Mentors</h2>
+
+        @foreach (var item in Model.Profiles)
+        {
+            <div class="card-outer">
+                <div class="image-and-status">
+                    <img style="max-height:100px" src="~/UserFiles/Images/@($"{item.ProfileId}.jpg")" />
+                    <span>Online</span>
+                </div>
+                <div class="name-achievements-technologies">
+                    <b>
+                        @item.FirstName @item.LastName
+                    </b>
+                    <p>@item.Description</p>
+
+                </div>
+                <div class="rate-and-action-call">
+                    <a asp-controller="Mentor" asp-action="ViewProfile" asp-route-id="@item.ProfileId">View Profile</a>
+
+                </div>
+            </div>
+
+        }
+
+      
+            @Html.Partial("BecomeMentor")
 
 
-@foreach (var item in Model.Profiles)
-{
-    <div class="card-outer">
-        <div class="image-and-status">
-            Online
-        </div>
-        <div class="name-achievements-technologies">
-            @item.DisplayName
-        </div>
-        <div class="rate-and-action-call">
-            View Profile
-        </div>
+
+
     </div>
 
-}
+    @*<a style="color:white; font-weight: 600; padding: 10px;" asp-controller="Mentor" asp-action="BecomeMentor">Not a mentor yet? Become one.</a>*@
+
+</div>
+
 
 @*<table class="table">
         <thead>

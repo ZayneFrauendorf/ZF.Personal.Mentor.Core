@@ -1,6 +1,7 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - ZF.Personal.Mentor.Core.Web</title>
@@ -21,8 +22,9 @@
             </div>
             <div class="site-links">
                 <a asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                <a asp-area="" asp-controller="Message" asp-action="Index">Messages</a>
                 @*<a asp-area="" asp-controller="Home" asp-action="About">About</a>
-                <a asp-area="" asp-controller="Home" asp-action="Contact">Contact</a>*@
+        <a asp-area="" asp-controller="Home" asp-action="Contact">Contact</a>*@
             </div>
             <div class="account-links">
                 <partial name="_LoginPartial" />

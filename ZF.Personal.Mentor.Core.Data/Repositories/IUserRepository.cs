@@ -9,5 +9,6 @@ namespace ZF.Personal.Mentor.Core.Data.Repositories
         Task<ApplicationUser> GetUserAsync(string email);
         Task<IList<ApplicationUser>> GetAllUsersAsync();
         Task<IList<ApplicationUser>> GetUsersByRoleAsync(string role);
+        Task AddRoletoUserAsync(string email);
     }
 }

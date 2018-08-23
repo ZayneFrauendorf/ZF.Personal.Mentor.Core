@@ -68,7 +68,7 @@ div.landing-page {
 div.hero-button a {
     cursor: pointer;
     color: #fff;
-    max-width: 200px;
+    max-width: 100px;
     background: #ff6b54;
     border: 1px solid #ff6b54;
     border-radius: 3px;
@@ -78,8 +78,20 @@ div.hero-button a {
     text-transform: uppercase;
     padding: 16px 32px;
     opacity: 1;
-    text-decoration:none;
+    text-decoration: none;
 }
+
+div.hero-button {
+    max-width: 200px;
+    margin: 0 auto;
+    transition: .1s;
+}
+
+    div.hero-button:hover {
+        background: black;
+        opacity: 0.8;
+        transition: .1s;
+    }
 
 .page-header h1 {
     font-size: 40px;
@@ -142,6 +154,7 @@ footer {
 .authenticate {
     display: flex;
     flex-direction: column;
+    margin-top: 20px;
 }
 
     .authenticate input {
@@ -153,13 +166,17 @@ footer {
         border-bottom: 1px solid black;
     }
 
-        .authenticate input:focus {
-            border-left: none;
-            border-top: none;
-            border-right: none;
-            border-bottom: 1px solid black;
-            outline: none;
-        }
+    .authenticate label {
+        opacity: 0.4;
+    }
+
+    .authenticate input:focus {
+        border-left: none;
+        border-top: none;
+        border-right: none;
+        border-bottom: 1px solid black;
+        outline: none;
+    }
 
     .authenticate .remember-me {
         display: flex;
@@ -260,29 +277,292 @@ footer {
 }
 
 
-/*<div class="card-outer" >
-<div class="image-and-status" > </div >
-<div class="name-achievements-technologies" > </div >
-<div class="rate-and-action-call" > </div >
-</div >*/
+/*Mentor Index */
+
+.mentor-index-ctr {
+    background: rgb(2,0,36);
+    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 0%, rgba(0,212,255,1) 100%);
+    height: 100vh;
+    display: flex;
+}
+
+.mentor-index-content {
+    padding: 40px;
+    font-weight: 500;
+    max-width: 1000px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background: white;
+    border-radius: 4px;
+    font-size: 18px;
+    min-width: 300px;
+    position: relative;
+}
 
 .card-outer {
     display: flex;
     min-width: 300px;
+    min-height: 150px;
     justify-content: space-around;
+    margin-top: 30px;
 }
 
 .image-and-status {
     display: flex;
     flex-direction: column;
+    justify-content: space-around;
+    text-align: center;
+    align-items: center;
+    width: 30%;
+    color: green;
+    font-weight: 600;
+    padding-left: 20px;
+    padding-right: 20px;
 }
+
+    .image-and-status img {
+        width: 120px;
+    }
 
 .name-achievements-technologies {
     display: flex;
     flex-direction: column;
+    width: 40%;
+    justify-content: center;
+    padding-left: 20px;
+    padding-right: 20px;
 }
 
 .rate-and-action-call {
     display: flex;
     flex-direction: column;
+    width: 30%;
+    padding-left: 20px;
+    padding-right: 20px;
+    justify-content: center;
+    transition: .03s;
+    transition: .1s;
+}
+
+    .rate-and-action-call a:hover {
+        background: black;
+        opacity: 0.8;
+        transition: .1s;
+    }
+
+    .rate-and-action-call a {
+        color: #fff;
+        max-width: 80px;
+        background: #ff6b54;
+        border: 1px solid #ff6b54;
+        border-radius: 3px;
+        outline: none;
+        font-weight: 500;
+        cursor: pointer;
+        font-size: 16px;
+        text-transform: uppercase;
+        padding: 10px 20px;
+        opacity: 1;
+        align-self: center;
+        text-decoration: none;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+/*Profile Index */
+
+.profile-index-ctr {
+    background: rgb(2,0,36);
+    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 0%, rgba(0,212,255,1) 100%);
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.profile-index-content {
+    padding: 40px;
+    font-weight: 500;
+    max-width: 700px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background: white;
+    border-radius: 4px;
+    font-size: 18px;
+    min-width: 300px;
+    text-align: right;
+    position: relative;
+}
+
+.header {
+    text-align: left;
+    margin-top: 15px;
+    font-size: 14px;
+    font-weight: 600;
+    opacity: 0.4;
+}
+
+.edit-button {
+    color: #fff;
+    max-width: 200px;
+    background: #ff6b54;
+    border: 1px solid #ff6b54;
+    border-radius: 3px;
+    outline: none;
+    font-weight: 500;
+    cursor: pointer;
+    font-size: 16px;
+    text-transform: uppercase;
+    padding: 16px 32px;
+    opacity: 1;
+    align-self: center;
+    margin: 0 auto;
+    margin-top: 15px;
+}
+
+.edit-circle-btn {
+    position: absolute;
+    bottom: -15px;
+    right: -15px;
+    background: #ff6b54;
+    color: #fff;
+    border-radius: 100%;
+    font-weight: 700;
+    font-size: 24px;
+    width: 75px;
+    height: 75px;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-align: center;
+    align-items: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    transition: .1s;
+}
+
+    .edit-circle-btn:hover {
+        opacity: 0.8;
+        background: black;
+        transition: .1s;
+    }
+
+/*a:hover {
+    transform: scale(1.1);
+    transition: .07s;
+}*/
+
+input[type=submit]:hover {
+    opacity: 0.8;
+    background: black;
+    transition: .1s;
+}
+
+button {
+    outline: none;
+}
+
+    button:hover {
+        opacity: 0.8;
+        background: black;
+        transition: .1s;
+    }
+
+.index-edit-link {
+    color: white;
+}
+
+/* Login Partial */
+.logout-button {
+    color: #fff;
+    max-width: 200px;
+    background: #ff6b54;
+    border: 1px solid #ff6b54;
+    border-radius: 3px;
+    outline: none;
+    font-weight: 500;
+    cursor: pointer;
+    font-size: 12px;
+    text-transform: uppercase;
+    padding: 8px 16px;
+    opacity: 1;
+    align-self: center;
+    transition: 0.3s;
+}
+
+/* Profile / ViewProfile */
+.vp-ctr {
+    background: rgb(2,0,36);
+    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 0%, rgba(0,212,255,1) 100%);
+    height: 100vh;
+    display: flex;
+}
+
+.vp-content {
+    padding: 40px;
+    font-weight: 500;
+    max-width: 700px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background: white;
+    border-radius: 4px;
+    font-size: 18px;
+    min-width: 300px;
+    text-align: right;
+    position: relative;
+}
+
+.message-mentor-btn {
+    color: #fff;
+    max-width: 80px;
+    background: #ff6b54;
+    border: 1px solid #ff6b54;
+    border-radius: 3px;
+    outline: none;
+    font-weight: 500;
+    cursor: pointer;
+    font-size: 16px;
+    text-transform: uppercase;
+    padding: 10px 20px;
+    opacity: 1;
+    align-self: center;
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+.message-index-ctr {
+    background: rgb(2,0,36);
+    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 0%, rgba(0,212,255,1) 100%);
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.message-index-content {
+    padding: 40px;
+    font-weight: 500;
+    max-width: 800px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background: white;
+    border-radius: 4px;
+    font-size: 18px;
+    min-width: 300px;
+    text-align: right;
+    position: relative;
 }

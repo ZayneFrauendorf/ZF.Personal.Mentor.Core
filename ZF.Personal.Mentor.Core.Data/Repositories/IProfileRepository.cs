@@ -5,5 +5,7 @@ namespace ZF.Personal.Mentor.Core.Data.Repositories
 {
     public interface IProfileRepository
     {
+        Task UpdateProfileAsync(Profile profile);
+        Task SaveAsync();
     }
 }

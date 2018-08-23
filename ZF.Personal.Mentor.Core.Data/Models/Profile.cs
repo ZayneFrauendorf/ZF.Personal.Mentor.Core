@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Http;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -11,6 +12,5 @@ namespace ZF.Personal.Mentor.Core.Data.Models
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string Description { get; set; }
-       
     }
 }

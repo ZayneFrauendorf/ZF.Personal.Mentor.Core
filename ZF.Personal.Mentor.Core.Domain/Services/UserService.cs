@@ -13,11 +13,13 @@ namespace ZF.Personal.Mentor.Core.Domain.Services
     {
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly IUserRepository _userRepository;
+        private readonly IProfileRepository _profileRepository;
 
-        public UserService(IUserRepository userRepository, UserManager<ApplicationUser> userManager)
+        public UserService(IUserRepository userRepository, IProfileRepository profileRepository, UserManager<ApplicationUser> userManager)
         {
             this._userManager = userManager;
             this._userRepository = userRepository;
+            this._profileRepository = profileRepository;
         }
 
         public async Task<ApplicationUser> GetUserAsync(string email)
@@ -28,6 +30,17 @@ namespace ZF.Personal.Mentor.Core.Domain.Services
         public async Task<IList<ApplicationUser>> GetUsersByRoleAsync(string role)
         {
             return await this._userRepository.GetUsersByRoleAsync(role);
+        }
+
+        public async Task UpdateProfileAsync(Profile profile)
+        {
+            await this._profileRepository.UpdateProfileAsync(profile);
+            await this._profileRepository.SaveAsync();
+        }
+
+        public async Task AddRoletoUserAsync(string email)
+        {
+            await this._userRepository.AddRoletoUserAsync(email);
         }
     }
 }

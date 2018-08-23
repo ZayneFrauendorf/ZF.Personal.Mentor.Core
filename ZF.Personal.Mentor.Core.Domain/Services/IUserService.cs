@@ -8,5 +8,7 @@ namespace ZF.Personal.Mentor.Core.Domain.Services
     {
         Task<ApplicationUser> GetUserAsync(string email);
         Task<IList<ApplicationUser>> GetUsersByRoleAsync(string role);
+        Task UpdateProfileAsync(Profile profile);
+        Task AddRoletoUserAsync(string email);
     }
 }

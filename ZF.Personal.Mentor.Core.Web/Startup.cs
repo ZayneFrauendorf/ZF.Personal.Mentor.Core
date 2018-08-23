@@ -51,6 +51,9 @@ namespace ZF.Personal.Mentor.Core.Web
 
             services.AddTransient<IUserService, UserService>();
             services.AddTransient<IUserRepository, UserRepository>();
+            services.AddTransient<IProfileRepository, ProfileRepository>();
+            services.AddTransient<IMessageRepository, MessageRepository>();
+            services.AddTransient<IMessageService, MessageService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

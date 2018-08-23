@@ -13,6 +13,7 @@ namespace ZF.Personal.Mentor.Core.Data
     IdentityRoleClaim<string>, IdentityUserToken<string>>
     {
         public DbSet<Profile> Profiles { get; set; }
+        public DbSet<Message> Messages { get; set; }
 
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options)
@@ -21,6 +22,9 @@ namespace ZF.Personal.Mentor.Core.Data
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);
+
+            builder.Entity<Message>().HasOne(x => x.From);
+            builder.Entity<Message>().HasOne(x => x.To);
 
             builder.Entity<ApplicationUser>().HasOne(x => x.Profile);
 

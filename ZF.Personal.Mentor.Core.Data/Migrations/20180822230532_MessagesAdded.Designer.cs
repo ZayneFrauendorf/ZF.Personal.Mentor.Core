@@ -10,8 +10,8 @@ using ZF.Personal.Mentor.Core.Data;
 namespace ZF.Personal.Mentor.Core.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20180820032827_Initial")]
-    partial class Initial
+    [Migration("20180822230532_MessagesAdded")]
+    partial class MessagesAdded
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -190,6 +190,31 @@ namespace ZF.Personal.Mentor.Core.Data.Migrations
                     b.ToTable("AspNetUserRoles");
                 });
 
+            modelBuilder.Entity("ZF.Personal.Mentor.Core.Data.Models.Message", b =>
+                {
+                    b.Property<int>("MessageId")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Body");
+
+                    b.Property<string>("FromId");
+
+                    b.Property<DateTime>("ReadAt");
+
+                    b.Property<DateTime>("SentAt");
+
+                    b.Property<string>("ToId");
+
+                    b.HasKey("MessageId");
+
+                    b.HasIndex("FromId");
+
+                    b.HasIndex("ToId");
+
+                    b.ToTable("Messages");
+                });
+
             modelBuilder.Entity("ZF.Personal.Mentor.Core.Data.Models.Profile", b =>
                 {
                     b.Property<int>("ProfileId")
@@ -260,6 +285,17 @@ namespace ZF.Personal.Mentor.Core.Data.Migrations
                         .WithMany("UserRoles")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("ZF.Personal.Mentor.Core.Data.Models.Message", b =>
+                {
+                    b.HasOne("ZF.Personal.Mentor.Core.Data.Models.ApplicationUser", "From")
+                        .WithMany()
+                        .HasForeignKey("FromId");
+
+                    b.HasOne("ZF.Personal.Mentor.Core.Data.Models.ApplicationUser", "To")
+                        .WithMany()
+                        .HasForeignKey("ToId");
                 });
 #pragma warning restore 612, 618
         }

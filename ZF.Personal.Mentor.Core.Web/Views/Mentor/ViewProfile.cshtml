@@ -1,23 +1,21 @@
 ﻿@model ZF.Personal.Mentor.Core.Web.ViewModels.ProfileViewModel
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "ViewProfile";
 }
-
-<div class="profile-index-ctr">
-
-    <div class="profile-index-content">
-        <div class="header">
-            <h2>Your Profile</h2>
-        </div>
+<div class="vp-ctr">
+    <div class="vp-content">
 
 
         <div>
+            <h4>@Html.DisplayFor(model => model.FirstName) @Html.DisplayFor(model => model.LastName)</h4>
+            <img src="~/UserFiles/Images/@ViewBag.ProfileImage" style="height: 200px;" alt="Alternate Text" />
+           
             <hr />
             <dl class="dl-horizontal">
-                <dt>
+                @*<dt>
                     <div class="header">
-                        <b>Display Name</b>
+                        @Html.DisplayNameFor(model => model.DisplayName)
                     </div>
                 </dt>
                 <dd>
@@ -25,7 +23,7 @@
                 </dd>
                 <dt>
                     <div class="header">
-                        <b>First Name</b>
+                        @Html.DisplayNameFor(model => model.FirstName)
                     </div>
                 </dt>
                 <dd>
@@ -33,34 +31,26 @@
                 </dd>
                 <dt>
                     <div class="header">
-                        <b>Last Name</b>
+                        @Html.DisplayNameFor(model => model.LastName)
                     </div>
                 </dt>
                 <dd>
                     @Html.DisplayFor(model => model.LastName)
-                </dd>
+                </dd>*@
                 <dt>
                     <div class="header">
-                        <b>Description</b>
+                        About Me
                     </div>
                 </dt>
                 <dd>
                     @Html.DisplayFor(model => model.Description)
                 </dd>
-                <dt>
-                    <div class="header">
-                        <b>Profile Image</b>
-                    </div>
-                </dt>
-                <dd>
-                    <img style="max-height:100px; float:left; margin-top: 10px;" src="~/UserFiles/Images/@ViewBag.ProfileImage" />
-                </dd>
             </dl>
         </div>
-        <a asp-controller="Profile" asp-action="Edit">
-            <div class="edit-circle-btn">
-                <i class="far fa-edit"></i>
-            </div>
-        </a>
+        @*<div>
+            @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+            <a asp-action="Index">Back to List</a>
+        </div>*@
+        <a class="message-mentor-btn">Message</a>
     </div>
 </div>

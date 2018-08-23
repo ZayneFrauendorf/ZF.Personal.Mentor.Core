@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace ZF.Personal.Mentor.Core.Data.Migrations
 {
-    public partial class Initial : Migration
+    public partial class MessagesAdded : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -176,6 +176,35 @@ namespace ZF.Personal.Mentor.Core.Data.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
+            migrationBuilder.CreateTable(
+                name: "Messages",
+                columns: table => new
+                {
+                    MessageId = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    FromId = table.Column<string>(nullable: true),
+                    ToId = table.Column<string>(nullable: true),
+                    SentAt = table.Column<DateTime>(nullable: false),
+                    ReadAt = table.Column<DateTime>(nullable: false),
+                    Body = table.Column<string>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Messages", x => x.MessageId);
+                    table.ForeignKey(
+                        name: "FK_Messages_AspNetUsers_FromId",
+                        column: x => x.FromId,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_Messages_AspNetUsers_ToId",
+                        column: x => x.ToId,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                });
+
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetRoleClaims_RoleId",
                 table: "AspNetRoleClaims",
@@ -219,6 +248,16 @@ namespace ZF.Personal.Mentor.Core.Data.Migrations
                 name: "IX_AspNetUsers_ProfileId",
                 table: "AspNetUsers",
                 column: "ProfileId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Messages_FromId",
+                table: "Messages",
+                column: "FromId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Messages_ToId",
+                table: "Messages",
+                column: "ToId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -237,6 +276,9 @@ namespace ZF.Personal.Mentor.Core.Data.Migrations
 
             migrationBuilder.DropTable(
                 name: "AspNetUserTokens");
+
+            migrationBuilder.DropTable(
+                name: "Messages");
 
             migrationBuilder.DropTable(
                 name: "AspNetRoles");

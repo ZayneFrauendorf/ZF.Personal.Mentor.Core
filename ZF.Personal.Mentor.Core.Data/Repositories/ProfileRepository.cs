@@ -16,5 +16,15 @@ namespace ZF.Personal.Mentor.Core.Data.Repositories
             this._context = context;
         }
 
+        public async Task UpdateProfileAsync(Profile profile)
+        {
+            this._context.Entry(profile).State = EntityState.Modified;
+        }
+
+        public async Task SaveAsync()
+        {
+            await this._context.SaveChangesAsync();
+        }
+
     }
 }
