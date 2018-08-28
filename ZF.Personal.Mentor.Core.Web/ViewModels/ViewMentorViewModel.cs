@@ -6,9 +6,9 @@ using ZF.Personal.Mentor.Core.Data.Models;
 
 namespace ZF.Personal.Mentor.Core.Web.ViewModels
 {
-    public class MentorListViewModel
+    public class ViewMentorViewModel
     {
-        public IList<Profile> Profiles { get; set; }
-        public bool IsMentor { get; set; }
+        public Profile Profile { get; set; }
+        public string ProfileImage => $"{this.Profile.ProfileId}.jpg";
     }
 }

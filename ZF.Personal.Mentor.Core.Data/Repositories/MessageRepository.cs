@@ -21,7 +21,13 @@ namespace ZF.Personal.Mentor.Core.Data.Repositories
         public async Task<IList<Message>> GetAllMessagesForUserAsync(string email)
         {
             var user = await this._userRepository.GetUserAsync(email);
-            return await this._context.Messages.Where(x => x.To == user).Include(x => x.From.Profile).ToListAsync();
+            return await this._context.Messages.Include(x => x.From.Profile).Where(x => x.To == user).OrderBy(x => x.SentAt).ToListAsync();
+        }
+
+        public async Task AddMessageAsync(Message message)
+        {
+            this._context.Entry(message).State = EntityState.Added;
+            await this._context.SaveChangesAsync();
         }
     }
 }

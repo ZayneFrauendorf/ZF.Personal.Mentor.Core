@@ -3,64 +3,59 @@
 @{
     ViewData["Title"] = "Index";
 }
-
-<div class="profile-index-ctr">
-
-    <div class="profile-index-content">
-        <div class="header">
-            <h2>Your Profile</h2>
-        </div>
-
-
-        <div>
-            <hr />
-            <dl class="dl-horizontal">
-                <dt>
-                    <div class="header">
-                        <b>Display Name</b>
-                    </div>
-                </dt>
-                <dd>
-                    @Html.DisplayFor(model => model.DisplayName)
-                </dd>
-                <dt>
-                    <div class="header">
-                        <b>First Name</b>
-                    </div>
-                </dt>
-                <dd>
-                    @Html.DisplayFor(model => model.FirstName)
-                </dd>
-                <dt>
-                    <div class="header">
-                        <b>Last Name</b>
-                    </div>
-                </dt>
-                <dd>
-                    @Html.DisplayFor(model => model.LastName)
-                </dd>
-                <dt>
-                    <div class="header">
-                        <b>Description</b>
-                    </div>
-                </dt>
-                <dd>
-                    @Html.DisplayFor(model => model.Description)
-                </dd>
-                <dt>
-                    <div class="header">
-                        <b>Profile Image</b>
-                    </div>
-                </dt>
-                <dd>
-                    <img style="max-height:100px; float:left; margin-top: 10px;" src="~/UserFiles/Images/@ViewBag.ProfileImage" />
-                </dd>
-            </dl>
-        </div>
+<div class="profile-content">
+    <div class="header">
+        <h2>Your Profile</h2>
+    </div>
+    <div>
+        <hr />
+        <dl>
+            <dt>
+                <div class="header">
+                    <b>Display Name</b>
+                </div>
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.DisplayName)
+            </dd>
+            <dt>
+                <div class="header">
+                    <b>First Name</b>
+                </div>
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.FirstName)
+            </dd>
+            <dt>
+                <div class="header">
+                    <b>Last Name</b>
+                </div>
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.LastName)
+            </dd>
+            <dt>
+                <div class="header">
+                    <b>Description</b>
+                </div>
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Description)
+            </dd>
+            <dt>
+                <div class="header">
+                    <b>Profile Image</b>
+                </div>
+            </dt>
+            <dd>
+                <img class="profile-index-img" src="~/UserFiles/Images/@ViewBag.ProfileImage" />
+            </dd>
+        </dl>
         <a asp-controller="Profile" asp-action="Edit">
             <div class="edit-circle-btn">
                 <i class="far fa-edit"></i>
             </div>
         </a>
     </div>
+
 </div>

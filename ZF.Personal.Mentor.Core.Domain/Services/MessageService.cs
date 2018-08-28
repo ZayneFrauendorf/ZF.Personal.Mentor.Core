@@ -18,5 +18,9 @@ namespace ZF.Personal.Mentor.Core.Domain.Services
         {
             return await this._messageRepository.GetAllMessagesForUserAsync(email);
         }
+        public async Task SendMessage(Message message)
+        {
+            await this._messageRepository.AddMessageAsync(message);
+        }
     }
 }

@@ -7,5 +7,6 @@ namespace ZF.Personal.Mentor.Core.Domain.Services
     public interface IMessageService
     {
         Task<IList<Message>> GetAllMessagesForUserAsync(string email);
+        Task SendMessage(Message message);
     }
 }

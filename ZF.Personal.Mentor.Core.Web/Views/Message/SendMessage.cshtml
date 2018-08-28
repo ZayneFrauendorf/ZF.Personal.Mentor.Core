@@ -1,0 +1,24 @@
+﻿@model ZF.Personal.Mentor.Core.Web.ViewModels.SendMessageViewModel
+
+<div class="send-message-card-outer">
+    <form asp-action="SendMessage" asp-route-id="@Model.Message.To.ProfileId">
+        <div asp-validation-summary="ModelOnly"></div>
+        <div>
+            <label>From:</label>
+            <label>@Model.Message.From.Profile.FirstName @Model.Message.From.Profile.LastName</label>
+        </div>
+        <div>
+            <label>To:</label>
+            <label>@Model.Message.To.Profile.FirstName @Model.Message.To.Profile.LastName</label>
+        </div>
+        <div class="send-message-body-ctr">
+            <label>Body:</label>
+            <textarea asp-for="Message.Body"></textarea>
+            <span asp-validation-for="Message.Body"></span>
+        </div>
+        <div>
+            <input type="submit" value="Send" class="send-message-btn" />
+        </div>
+    </form>
+</div>
+

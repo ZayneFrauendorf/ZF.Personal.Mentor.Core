@@ -22,41 +22,34 @@ namespace ZF.Personal.Mentor.Core.Web.Controllers
         }
         public async Task<IActionResult> Index()
         {
-            var mentors = await this._userService.GetUsersByRoleAsync("MENTOR");
+            var mentors = await this._userService.GetMentorsAsync();
 
             MentorListViewModel mentorListViewModel = new MentorListViewModel
             {
-                Profiles = mentors.Select(x => x.Profile).ToList()
+                Profiles = mentors.Select(x => x.Profile).ToList(),
+                IsMentor = await this._userService.IsMentorAsync(User.Identity.Name)
             };
             return View(mentorListViewModel);
         }
 
         [HttpGet]
-        public async Task<IActionResult> ViewProfile(int id)
+        public async Task<IActionResult> View(int id)
         {
-            var mentors = await this._userService.GetUsersByRoleAsync("MENTOR");
+            var mentor = await this._userService.GetUserByProfileIdAsync(id);
 
-            var mentor = mentors.Select(x => x.Profile).Where(x => x.ProfileId == id).FirstOrDefault();
-
-            ViewBag.ProfileImage = mentor.ProfileId + ".jpg";
-
-            var profileViewModel = new ProfileViewModel
+            var viewModel = new ViewMentorViewModel
             {
-                DisplayName = mentor.DisplayName,
-                Description = mentor.Description,
-                FirstName = mentor.FirstName,
-                LastName = mentor.LastName
+                Profile = mentor.Profile
             };
-            return View(profileViewModel);
+            return View(viewModel);
         }
 
         public async Task<IActionResult> BecomeMentor()
         {
-            if (User.IsInRole("MENTOR"))
+            if (await this._userService.IsMentorAsync(User.Identity.Name))
             {
                 return RedirectToAction(nameof(Index));
             }
-            //var user = await this._userService.GetUserAsync(User.Identity.Name);
             await this._userService.AddRoletoUserAsync(User.Identity.Name);
             return RedirectToAction(nameof(Index));
         }

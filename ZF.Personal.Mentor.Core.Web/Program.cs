@@ -16,7 +16,6 @@ namespace ZF.Personal.Mentor.Core.Web
     {
         public static void Main(string[] args)
         {
-            //CreateWebHostBuilder(args).Build().Run();
             var host = CreateWebHostBuilder(args).Build();
             using (var scope = host.Services.CreateScope())
             {
@@ -24,7 +23,7 @@ namespace ZF.Personal.Mentor.Core.Web
                 try
                 {
                     var context = services.GetRequiredService<ApplicationDbContext>();
-                    DbInitializer.Seed(context);//<---Do your seeding here
+                    DbInitializer.Seed(context);
                 }
                 catch (Exception ex)
                 {

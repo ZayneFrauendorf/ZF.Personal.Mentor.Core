@@ -23,8 +23,6 @@
             <div class="site-links">
                 <a asp-area="" asp-controller="Home" asp-action="Index">Home</a>
                 <a asp-area="" asp-controller="Message" asp-action="Index">Messages</a>
-                @*<a asp-area="" asp-controller="Home" asp-action="About">About</a>
-        <a asp-area="" asp-controller="Home" asp-action="Contact">Contact</a>*@
             </div>
             <div class="account-links">
                 <partial name="_LoginPartial" />
@@ -35,8 +33,11 @@
     <partial name="_CookieConsentPartial" />
 
     <div>
-        @RenderBody()
-        <hr />
+        <div class="layout-ctr">
+
+            @RenderBody()
+
+        </div>
         <footer>
             <p>&copy; 2018 - NZMentor</p>
         </footer>

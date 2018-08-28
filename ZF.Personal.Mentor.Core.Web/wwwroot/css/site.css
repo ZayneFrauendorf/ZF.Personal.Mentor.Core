@@ -5,6 +5,31 @@ body {
     font-family: 'Montserrat', sans-serif;
 }
 
+/* Layout Style */
+.layout-ctr {
+    background: rgb(2,0,36);
+    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 0%, rgba(0,212,255,1) 100%);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    max-width: 2000px;
+    margin: 0 auto;
+}
+
+.layout-content {
+    padding: 40px;
+    max-width: 100%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-radius: 4px;
+    min-width: 300px;
+    position: relative;
+}
+
 /* Wrapping element */
 /* Set some basic padding to keep content from hitting the edges */
 .body-content {
@@ -34,13 +59,23 @@ nav {
     margin-right: 5px;
 }
 
+.index-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
 
+    .index-content > div > img {
+        max-height: 200px;
+    }
 
 .page-header {
     color: white;
+    text-align: center;
 }
 
-div.landing-page {
+/*div.landing-page {
     height: 100vh;
     text-align: center;
     background: rgb(2,0,36);
@@ -48,21 +83,6 @@ div.landing-page {
     display: flex;
     flex-direction: column;
     justify-content: center;
-}
-
-/*div.hero-button button {
-    color: #fff;
-    max-width: 200px;
-    background: #ff6b54;
-    border: 1px solid #ff6b54;
-    border-radius: 3px;
-    outline: none;
-    font-weight: 500;
-    cursor: pointer;
-    font-size: 16px;
-    text-transform: uppercase;
-    padding: 16px 32px;
-    opacity: 1;
 }*/
 
 div.hero-button a {
@@ -85,6 +105,7 @@ div.hero-button {
     max-width: 200px;
     margin: 0 auto;
     transition: .1s;
+    margin-top: 30px;
 }
 
     div.hero-button:hover {
@@ -103,25 +124,16 @@ footer {
 
 /*login page*/
 
-.login-background {
-    background: rgb(2,0,36);
-    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 0%, rgba(0,212,255,1) 100%);
-    height: 100vh;
-    display: flex;
-}
-
 .login-content {
-    padding: 40px;
     font-weight: 500;
-    max-width: 500px;
     margin: auto;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    background: white;
-    border-radius: 4px;
     font-size: 18px;
-    min-width: 300px;
+    background: white;
+    padding: 30px;
+    border-radius: 4px;
 }
 
     .login-content form {
@@ -186,25 +198,16 @@ footer {
 
 /*register page*/
 
-.register-background {
-    background: rgb(2,0,36);
-    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 0%, rgba(0,212,255,1) 100%);
-    height: 100vh;
-    display: flex;
-}
 
 .register-content {
-    padding: 40px;
     font-weight: 500;
-    max-width: 500px;
     margin: auto;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    background: white;
-    border-radius: 4px;
     font-size: 18px;
-    min-width: 300px;
+    background: white;
+    padding: 30px;
 }
 
     .register-content form {
@@ -228,16 +231,11 @@ footer {
     padding: 16px 32px;
     opacity: 1;
     align-self: center;
+    margin-top: 20px;
 }
 
 
 /*forgot password page*/
-.forgot-password-background {
-    background: rgb(2,0,36);
-    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 0%, rgba(0,212,255,1) 100%);
-    height: 100vh;
-    display: flex;
-}
 
 .forgot-password-content {
     padding: 40px;
@@ -279,13 +277,6 @@ footer {
 
 /*Mentor Index */
 
-.mentor-index-ctr {
-    background: rgb(2,0,36);
-    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 0%, rgba(0,212,255,1) 100%);
-    height: 100vh;
-    display: flex;
-}
-
 .mentor-index-content {
     padding: 40px;
     font-weight: 500;
@@ -303,10 +294,11 @@ footer {
 
 .card-outer {
     display: flex;
-    min-width: 300px;
     min-height: 150px;
     justify-content: space-around;
     margin-top: 30px;
+    background: white;
+    border-radius: 4px;
 }
 
 .image-and-status {
@@ -323,7 +315,7 @@ footer {
 }
 
     .image-and-status img {
-        width: 120px;
+        max-height: 100px;
     }
 
 .name-achievements-technologies {
@@ -372,22 +364,20 @@ footer {
         align-items: center;
     }
 
-/*Profile Index */
-
-.profile-index-ctr {
-    background: rgb(2,0,36);
-    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 0%, rgba(0,212,255,1) 100%);
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+.become-mentor-link {
+    color: white;
+    font-weight: 600;
+    padding: 10px;
+    position: absolute;
+    bottom: -40px;
+    margin: auto;
 }
 
-.profile-index-content {
-    padding: 40px;
+/*Profile Index */
+
+
+.profile-content {
     font-weight: 500;
-    max-width: 700px;
     margin: auto;
     display: flex;
     flex-direction: column;
@@ -395,10 +385,13 @@ footer {
     background: white;
     border-radius: 4px;
     font-size: 18px;
-    min-width: 300px;
     text-align: right;
-    position: relative;
+    padding: 30px;
 }
+
+    .profile-content > div {
+        position: relative;
+    }
 
 .header {
     text-align: left;
@@ -428,8 +421,8 @@ footer {
 
 .edit-circle-btn {
     position: absolute;
-    bottom: -15px;
-    right: -15px;
+    bottom: -40px;
+    right: -40px;
     background: #ff6b54;
     color: #fff;
     border-radius: 100%;
@@ -452,10 +445,18 @@ footer {
         transition: .1s;
     }
 
-/*a:hover {
-    transform: scale(1.1);
-    transition: .07s;
-}*/
+.profile-index-img {
+    max-height: 100px;
+    float: left;
+    margin-top: 10px;
+}
+
+/*  Profile / Edit  */
+.profile-edit-msg {
+    color: white;
+    font-size: 24px;
+}
+
 
 input[type=submit]:hover {
     opacity: 0.8;
@@ -504,20 +505,19 @@ button {
 }
 
 .vp-content {
-    padding: 40px;
     font-weight: 500;
-    max-width: 700px;
-    margin: auto;
     display: flex;
     flex-direction: column;
     justify-content: center;
     background: white;
     border-radius: 4px;
     font-size: 18px;
-    min-width: 300px;
-    text-align: right;
-    position: relative;
+    padding: 20px;
 }
+
+    .vp-content img {
+        height: 200px;
+    }
 
 .message-mentor-btn {
     color: #fff;
@@ -541,28 +541,98 @@ button {
 
 
 
-.message-index-ctr {
-    background: rgb(2,0,36);
-    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 0%, rgba(0,212,255,1) 100%);
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
+/* Message Index */
 
 .message-index-content {
-    padding: 40px;
     font-weight: 500;
-    max-width: 800px;
     margin: auto;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    background: white;
     border-radius: 4px;
     font-size: 18px;
-    min-width: 300px;
     text-align: right;
-    position: relative;
 }
+
+.message-card-outer {
+    flex-direction: column;
+    min-width: 400px;
+    padding: 20px;
+    justify-content: space-around;
+    margin-top: 30px;
+    background: white;
+    border-radius: 4px;
+}
+
+    .message-card-outer div {
+        display: flex;
+        justify-content: space-between;
+    }
+
+.message-body {
+    margin-top: 30px;
+    align-self: flex-end;
+    border: 1px solid black;
+    padding: 10px;
+    color: red;
+    font-weight: 600
+}
+
+.message-index-ctr {
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+    margin-bottom: 40px;
+}
+
+
+/* Message Send */
+
+
+.send-message-btn {
+    color: #fff;
+    max-width: 200px;
+    background: #ff6b54;
+    border: 1px solid #ff6b54;
+    border-radius: 3px;
+    outline: none;
+    font-weight: 500;
+    cursor: pointer;
+    font-size: 16px;
+    text-transform: uppercase;
+    padding: 16px 32px;
+    opacity: 1;
+    align-self: center;
+    margin: 0 auto;
+    margin-top: 15px;
+}
+
+.send-message-card-outer {
+    display: flex;
+    min-height: 150px;
+    justify-content: space-around;
+    margin-top: 30px;
+    background: white;
+    border-radius: 4px;
+    padding: 30px;
+}
+
+    .send-message-card-outer div {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 10px;
+    }
+
+
+.send-message-body-ctr {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+    .send-message-body-ctr textarea {
+        height: 150px;
+        min-width: 300px;
+        margin-top: 20px;
+    }

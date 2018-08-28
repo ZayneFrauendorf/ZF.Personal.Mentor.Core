@@ -30,7 +30,7 @@ namespace ZF.Personal.Mentor.Core.Data
 
             builder.Entity<ApplicationUserRole>(userRole =>
             {
-               
+
                 userRole.HasKey(ur => new { ur.UserId, ur.RoleId });
 
                 userRole.HasOne(ur => ur.Role)

@@ -1,54 +1,27 @@
 ﻿@model ZF.Personal.Mentor.Core.Web.ViewModels.MessageListViewModel
 
+
 <div class="message-index-ctr">
 
-    <div class="message-index-content">
-        <table class="table">
-            <thead>
-                <tr>
-                    <th>
-                        ID
-                    </th>
-                    <th>
-                        FROM
-                    </th>
-                    <th>
-                        SENT AT
-                    </th>
-                    <th>
-                        READ AT
-                    </th>
-                    <th>
-                        Message Body
-                    </th>
-                    <th></th>
-                </tr>
-            </thead>
-            <tbody style="margin-top: 20px;">
-                @foreach (var item in Model.Messages)
-                {
-                    <tr style="margin-top: 20px;">
-                        <td>
-                            @Html.DisplayFor(modelItem => item.MessageId)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.From.Profile.FirstName) @Html.DisplayFor(modelItem => item.From.Profile.LastName)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.SentAt)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.ReadAt)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Body)
-                        </td>
-                       
-                    </tr>
-                    
-                }
-            </tbody>
-        </table>
-
+    @foreach (var item in Model.Messages)
+    {
+        <div class="message-card-outer">
+            <div>
+                <span><b>FROM</b></span>
+                <span>@Html.DisplayFor(modelItem => item.From.Profile.FirstName) @Html.DisplayFor(modelItem => item.From.Profile.LastName)</span>
+            </div>
+            <div>
+                <span><b>RECEIVED</b></span>
+                <span>@Html.DisplayFor(modelItem => item.SentAt)</span>
+            </div>
+            <div>
+                <span><b>BODY</b></span>
+                <span class="message-body">@Html.DisplayFor(modelItem => item.Body)</span>
+            </div>
         </div>
-    </div>
+    }
+
+</div>
+
+
+

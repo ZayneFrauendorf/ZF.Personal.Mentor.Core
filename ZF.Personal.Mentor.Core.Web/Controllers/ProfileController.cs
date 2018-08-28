@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
@@ -22,6 +23,7 @@ namespace ZF.Personal.Mentor.Core.Web.Controllers
             this._userService = userService;
             this._appEnvironment = appEnvironment;
         }
+        [Authorize]
         public async Task<IActionResult> Index()
         {
             var appUser = await this._userService.GetUserAsync(User.Identity.Name);
@@ -39,6 +41,7 @@ namespace ZF.Personal.Mentor.Core.Web.Controllers
             return View(viewModel);
         }
 
+        [Authorize]
         [HttpGet]
         public async Task<IActionResult> Edit()
         {
@@ -54,8 +57,9 @@ namespace ZF.Personal.Mentor.Core.Web.Controllers
             return View(viewModel);
         }
 
+        [Authorize]
         [HttpPost]
-        public async Task<IActionResult> Edit(ProfileViewModel viewModel, IFormFile file)
+        public async Task<IActionResult> Edit(ProfileViewModel viewModel, IFormFile file = null)
         {
             var user = await _userService.GetUserAsync(User.Identity.Name);
 
@@ -69,16 +73,22 @@ namespace ZF.Personal.Mentor.Core.Web.Controllers
             };
 
             await this._userService.UpdateProfileAsync(model);
+            // return Content("file not selected");
 
-            if (file == null || file.Length == 0) return Content("file not selected");
-
-            string path_Root = _appEnvironment.WebRootPath;
-
-            string path_to_Images = path_Root + "\\UserFiles\\Images\\" + user.ProfileId + ".jpg";
-
-            using (var stream = new FileStream(path_to_Images, FileMode.Create))
+            if (file != null)
             {
-                await file.CopyToAsync(stream);
+                if (file.Length != 0)
+                {
+
+                    string path_Root = _appEnvironment.WebRootPath;
+
+                    string path_to_Images = path_Root + "\\UserFiles\\Images\\" + user.ProfileId + ".jpg";
+
+                    using (var stream = new FileStream(path_to_Images, FileMode.Create))
+                    {
+                        await file.CopyToAsync(stream);
+                    }
+                }
             }
 
             return RedirectToAction(nameof(Edit));

@@ -6,9 +6,8 @@ using ZF.Personal.Mentor.Core.Data.Models;
 
 namespace ZF.Personal.Mentor.Core.Web.ViewModels
 {
-    public class MentorListViewModel
+    public class SendMessageViewModel
     {
-        public IList<Profile> Profiles { get; set; }
-        public bool IsMentor { get; set; }
+        public Message Message { get; set; }
     }
 }

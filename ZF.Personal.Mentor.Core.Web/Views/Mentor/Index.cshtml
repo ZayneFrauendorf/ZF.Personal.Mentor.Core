@@ -4,82 +4,32 @@
 @{
     ViewData["Title"] = "Index";
 }
-<div class="mentor-index-ctr">
-    <div class="mentor-index-content">
-        @*<h2>Our Mentors</h2>*@
 
+@foreach (var item in Model.Profiles)
+{
+    <div class="card-outer">
+        <div class="image-and-status">
+            <img src="~/UserFiles/Images/@($"{item.ProfileId}.jpg")" />
+            <span>Online</span>
+        </div>
+        <div class="name-achievements-technologies">
+            <b>
+                @item.FirstName @item.LastName
+            </b>
+            <p>@item.Description</p>
 
-        @foreach (var item in Model.Profiles)
-        {
-            <div class="card-outer">
-                <div class="image-and-status">
-                    <img style="max-height:100px" src="~/UserFiles/Images/@($"{item.ProfileId}.jpg")" />
-                    <span>Online</span>
-                </div>
-                <div class="name-achievements-technologies">
-                    <b>
-                        @item.FirstName @item.LastName
-                    </b>
-                    <p>@item.Description</p>
+        </div>
+        <div class="rate-and-action-call">
+            <a asp-controller="Mentor" asp-action="View" asp-route-id="@item.ProfileId">View Profile</a>
 
-                </div>
-                <div class="rate-and-action-call">
-                    <a asp-controller="Mentor" asp-action="ViewProfile" asp-route-id="@item.ProfileId">View Profile</a>
-
-                </div>
-            </div>
-
-        }
-
-      
-            @Html.Partial("BecomeMentor")
-
-
-
-
+        </div>
     </div>
 
-    @*<a style="color:white; font-weight: 600; padding: 10px;" asp-controller="Mentor" asp-action="BecomeMentor">Not a mentor yet? Become one.</a>*@
+}
 
-</div>
+@if (!Model.IsMentor && User.Identity.IsAuthenticated)
+{
+    <partial name="_BecomeMentor" />
+}
 
 
-@*<table class="table">
-        <thead>
-            <tr>
-                <th>
-                    Display Name
-                </th>
-                <th>
-                    First Name
-                </th>
-                <th>
-                    Last Name
-                </th>
-                <th>
-                    Description
-                </th>
-                <th></th>
-            </tr>
-        </thead>
-        <tbody>
-    @foreach (var item in Model.Profiles) {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.DisplayName)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.FirstName)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.LastName)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Description)
-                </td>
-                <td>
-                </td>
-            </tr>
-    }
-        </tbody>
-    </table>*@

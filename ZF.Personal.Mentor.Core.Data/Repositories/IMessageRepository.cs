@@ -7,5 +7,6 @@ namespace ZF.Personal.Mentor.Core.Data.Repositories
     public interface IMessageRepository
     {
         Task<IList<Message>> GetAllMessagesForUserAsync(string email);
+        Task AddMessageAsync(Message message);
     }
 }

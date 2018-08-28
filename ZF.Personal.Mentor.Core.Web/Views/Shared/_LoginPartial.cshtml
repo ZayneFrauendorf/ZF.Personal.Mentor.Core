@@ -8,17 +8,17 @@
 {
     <form asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })" method="post" id="logoutForm" class="navbar-right">
         <div class="login-partial">
-            
-                <a asp-controller="Profile" asp-action="Index">Hello @UserManager.GetUserName(User)!</a>
- 
-                <button type="submit" class="logout-button">Logout</button>
-            
+
+            <a asp-controller="Profile" asp-action="Index">Hello @UserManager.GetUserName(User)!</a>
+
+            <button type="submit" class="logout-button">Logout</button>
+
         </div>
     </form>
 }
 else
 {
-        <a asp-area="Identity" asp-page="/Account/Register">Register</a>
-        <a asp-area="Identity" asp-page="/Account/Login">Login</a>
+    <a asp-area="Identity" asp-page="/Account/Register">Register</a>
+    <a asp-area="Identity" asp-page="/Account/Login">Login</a>
 
 }

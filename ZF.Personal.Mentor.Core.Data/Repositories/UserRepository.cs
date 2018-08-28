@@ -30,6 +30,13 @@ namespace ZF.Personal.Mentor.Core.Data.Repositories
             return (await this.GetAllUsersAsync()).FirstOrDefault(x => x.Email == email);
         }
 
+        public async Task<ApplicationUser> GetUserByProfileIdAsync(int id)
+        {
+            return (await this.GetAllUsersAsync()).FirstOrDefault(x => x.ProfileId == id);
+        }
+
+
+
         public async Task<IList<ApplicationUser>> GetUsersByRoleAsync(string role)
         {
             return (await this.GetAllUsersAsync()).Where(x => x.UserRoles.Any(y => y.Role.Name == role)).ToList();
