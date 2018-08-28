@@ -3,40 +3,59 @@
 @{
     ViewData["Title"] = "Index";
 }
+<div class="profile-content">
+    <div class="header">
+        <h2>Your Profile</h2>
+    </div>
+    <div>
+        <hr />
+        <dl>
+            <dt>
+                <div class="header">
+                    <b>Display Name</b>
+                </div>
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.DisplayName)
+            </dd>
+            <dt>
+                <div class="header">
+                    <b>First Name</b>
+                </div>
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.FirstName)
+            </dd>
+            <dt>
+                <div class="header">
+                    <b>Last Name</b>
+                </div>
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.LastName)
+            </dd>
+            <dt>
+                <div class="header">
+                    <b>Description</b>
+                </div>
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Description)
+            </dd>
+            <dt>
+                <div class="header">
+                    <b>Profile Image</b>
+                </div>
+            </dt>
+            <dd>
+                <img class="profile-index-img" src="~/UserFiles/Images/@ViewBag.ProfileImage" />
+            </dd>
+        </dl>
+        <a asp-controller="Profile" asp-action="Edit">
+            <div class="edit-circle-btn">
+                <i class="far fa-edit"></i>
+            </div>
+        </a>
+    </div>
 
-<h2>Index</h2>
-
-<div>
-    <h4>ProfileViewModel</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.DisplayName)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.DisplayName)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.FirstName)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.FirstName)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.LastName)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.LastName)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.Description)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.Description)
-        </dd>
-    </dl>
-</div>
-<div>
-    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
-    <a asp-action="Index">Back to List</a>
 </div>

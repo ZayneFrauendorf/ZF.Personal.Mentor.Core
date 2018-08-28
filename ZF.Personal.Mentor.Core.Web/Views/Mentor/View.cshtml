@@ -1,0 +1,21 @@
+﻿@model ZF.Personal.Mentor.Core.Web.ViewModels.ViewMentorViewModel
+
+@{
+    ViewData["Title"] = "ViewProfile";
+}
+<div class="vp-content">
+    <h4>@Html.DisplayFor(model => model.Profile.FirstName) @Html.DisplayFor(model => model.Profile.LastName)</h4>
+    <img src="~/UserFiles/Images/@Model.ProfileImage" alt="Alternate Text" />
+    <hr />
+    <dl>
+        <dt>
+            <div class="header">
+                About Me
+            </div>
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Profile.Description)
+        </dd>
+    </dl>
+    <a class="message-mentor-btn" asp-controller="Message" asp-action="SendMessage" asp-route-id="@Model.Profile.ProfileId">Message</a>
+</div>

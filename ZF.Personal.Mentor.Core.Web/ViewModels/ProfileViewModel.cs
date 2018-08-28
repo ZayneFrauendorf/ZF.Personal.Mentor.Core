@@ -7,6 +7,7 @@ namespace ZF.Personal.Mentor.Core.Web.ViewModels
 {
     public class ProfileViewModel
     {
+        public int ProfileId { get; set; }
         public string DisplayName { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }

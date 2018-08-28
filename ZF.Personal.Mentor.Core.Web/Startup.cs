@@ -15,6 +15,7 @@ using Microsoft.Extensions.DependencyInjection;
 using ZF.Personal.Mentor.Core.Data.Models;
 using ZF.Personal.Mentor.Core.Domain.Services;
 using ZF.Personal.Mentor.Core.Data.Repositories;
+using ReflectionIT.Mvc.Paging;
 
 namespace ZF.Personal.Mentor.Core.Web
 {
@@ -44,13 +45,14 @@ namespace ZF.Personal.Mentor.Core.Web
             .AddEntityFrameworkStores<ApplicationDbContext>()
             .AddDefaultTokenProviders()
             .AddDefaultUI();
-            //services.AddDefaultIdentity<ApplicationUser>()
-            //    .AddEntityFrameworkStores<ApplicationDbContext>();
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
-
+            services.AddPaging();
             services.AddTransient<IUserService, UserService>();
             services.AddTransient<IUserRepository, UserRepository>();
+            services.AddTransient<IProfileRepository, ProfileRepository>();
+            services.AddTransient<IMessageRepository, MessageRepository>();
+            services.AddTransient<IMessageService, MessageService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

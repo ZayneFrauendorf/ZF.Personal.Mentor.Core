@@ -1,0 +1,53 @@
+﻿@model ZF.Personal.Mentor.Core.Web.ViewModels.ProfileViewModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+@if (Model.DisplayName == null && Model.Description == null && Model.FirstName == null && Model.LastName == null)
+{
+    <h4 class="profile-edit-msg">Take a minute to create your portfolio..</h4>
+
+}
+else if (Model.DisplayName == null || Model.Description == null || Model.FirstName == null || Model.LastName == null)
+{
+    <h4 class="profile-edit-msg">We've noticed some missing info. Care to fill it in?</h4>
+}
+<div class="profile-content">
+
+    <hr />
+    <form asp-action="Edit" enctype="multipart/form-data" method="post">
+        <div asp-validation-summary="ModelOnly"></div>
+        <div class="authenticate">
+            <label asp-for="DisplayName" class="header"></label>
+            <input asp-for="DisplayName" />
+            <span asp-validation-for="DisplayName"></span>
+        </div>
+        <div class="authenticate">
+            <label asp-for="FirstName" class="header"></label>
+            <input asp-for="FirstName" />
+            <span asp-validation-for="FirstName"></span>
+        </div>
+        <div class="authenticate">
+            <label asp-for="LastName" class="header"></label>
+            <input asp-for="LastName" />
+            <span asp-validation-for="LastName"></span>
+        </div>
+        <div class="authenticate">
+            <label asp-for="Description" class="header"></label>
+            <input asp-for="Description" />
+            <span asp-validation-for="Description"></span>
+        </div>
+        <div class="authenticate">
+            <label class="header">Profile Picture</label>
+            <input type="file" name="file" />
+            <span asp-validation-for="Description"></span>
+        </div>
+        <div>
+            <input type="submit" value="Save" class="edit-button" />
+        </div>
+    </form>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

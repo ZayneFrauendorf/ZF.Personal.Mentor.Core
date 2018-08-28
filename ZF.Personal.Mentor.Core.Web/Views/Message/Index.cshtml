@@ -1,0 +1,27 @@
+﻿@model ZF.Personal.Mentor.Core.Web.ViewModels.MessageListViewModel
+
+
+<div class="message-index-ctr">
+
+    @foreach (var item in Model.Messages)
+    {
+        <div class="message-card-outer">
+            <div>
+                <span><b>FROM</b></span>
+                <span>@Html.DisplayFor(modelItem => item.From.Profile.FirstName) @Html.DisplayFor(modelItem => item.From.Profile.LastName)</span>
+            </div>
+            <div>
+                <span><b>RECEIVED</b></span>
+                <span>@Html.DisplayFor(modelItem => item.SentAt)</span>
+            </div>
+            <div>
+                <span><b>BODY</b></span>
+                <span class="message-body">@Html.DisplayFor(modelItem => item.Body)</span>
+            </div>
+        </div>
+    }
+
+</div>
+
+
+

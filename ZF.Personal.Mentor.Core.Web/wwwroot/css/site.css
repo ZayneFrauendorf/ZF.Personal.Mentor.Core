@@ -5,6 +5,31 @@ body {
     font-family: 'Montserrat', sans-serif;
 }
 
+/* Layout Style */
+.layout-ctr {
+    background: rgb(2,0,36);
+    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 0%, rgba(0,212,255,1) 100%);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    max-width: 2000px;
+    margin: 0 auto;
+}
+
+.layout-content {
+    padding: 40px;
+    max-width: 100%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-radius: 4px;
+    min-width: 300px;
+    position: relative;
+}
+
 /* Wrapping element */
 /* Set some basic padding to keep content from hitting the edges */
 .body-content {
@@ -34,13 +59,23 @@ nav {
     margin-right: 5px;
 }
 
+.index-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
 
+    .index-content > div > img {
+        max-height: 200px;
+    }
 
 .page-header {
     color: white;
+    text-align: center;
 }
 
-div.landing-page {
+/*div.landing-page {
     height: 100vh;
     text-align: center;
     background: rgb(2,0,36);
@@ -48,27 +83,12 @@ div.landing-page {
     display: flex;
     flex-direction: column;
     justify-content: center;
-}
-
-/*div.hero-button button {
-    color: #fff;
-    max-width: 200px;
-    background: #ff6b54;
-    border: 1px solid #ff6b54;
-    border-radius: 3px;
-    outline: none;
-    font-weight: 500;
-    cursor: pointer;
-    font-size: 16px;
-    text-transform: uppercase;
-    padding: 16px 32px;
-    opacity: 1;
 }*/
 
 div.hero-button a {
     cursor: pointer;
     color: #fff;
-    max-width: 200px;
+    max-width: 100px;
     background: #ff6b54;
     border: 1px solid #ff6b54;
     border-radius: 3px;
@@ -78,8 +98,21 @@ div.hero-button a {
     text-transform: uppercase;
     padding: 16px 32px;
     opacity: 1;
-    text-decoration:none;
+    text-decoration: none;
 }
+
+div.hero-button {
+    max-width: 200px;
+    margin: 0 auto;
+    transition: .1s;
+    margin-top: 30px;
+}
+
+    div.hero-button:hover {
+        background: black;
+        opacity: 0.8;
+        transition: .1s;
+    }
 
 .page-header h1 {
     font-size: 40px;
@@ -91,25 +124,16 @@ footer {
 
 /*login page*/
 
-.login-background {
-    background: rgb(2,0,36);
-    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 0%, rgba(0,212,255,1) 100%);
-    height: 100vh;
-    display: flex;
-}
-
 .login-content {
-    padding: 40px;
     font-weight: 500;
-    max-width: 500px;
     margin: auto;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    background: white;
-    border-radius: 4px;
     font-size: 18px;
-    min-width: 300px;
+    background: white;
+    padding: 30px;
+    border-radius: 4px;
 }
 
     .login-content form {
@@ -142,6 +166,7 @@ footer {
 .authenticate {
     display: flex;
     flex-direction: column;
+    margin-top: 20px;
 }
 
     .authenticate input {
@@ -153,13 +178,17 @@ footer {
         border-bottom: 1px solid black;
     }
 
-        .authenticate input:focus {
-            border-left: none;
-            border-top: none;
-            border-right: none;
-            border-bottom: 1px solid black;
-            outline: none;
-        }
+    .authenticate label {
+        opacity: 0.4;
+    }
+
+    .authenticate input:focus {
+        border-left: none;
+        border-top: none;
+        border-right: none;
+        border-bottom: 1px solid black;
+        outline: none;
+    }
 
     .authenticate .remember-me {
         display: flex;
@@ -169,25 +198,16 @@ footer {
 
 /*register page*/
 
-.register-background {
-    background: rgb(2,0,36);
-    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 0%, rgba(0,212,255,1) 100%);
-    height: 100vh;
-    display: flex;
-}
 
 .register-content {
-    padding: 40px;
     font-weight: 500;
-    max-width: 500px;
     margin: auto;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    background: white;
-    border-radius: 4px;
     font-size: 18px;
-    min-width: 300px;
+    background: white;
+    padding: 30px;
 }
 
     .register-content form {
@@ -211,16 +231,11 @@ footer {
     padding: 16px 32px;
     opacity: 1;
     align-self: center;
+    margin-top: 20px;
 }
 
 
 /*forgot password page*/
-.forgot-password-background {
-    background: rgb(2,0,36);
-    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 0%, rgba(0,212,255,1) 100%);
-    height: 100vh;
-    display: flex;
-}
 
 .forgot-password-content {
     padding: 40px;
@@ -260,29 +275,364 @@ footer {
 }
 
 
-/*<div class="card-outer" >
-<div class="image-and-status" > </div >
-<div class="name-achievements-technologies" > </div >
-<div class="rate-and-action-call" > </div >
-</div >*/
+/*Mentor Index */
+
+.mentor-index-content {
+    padding: 40px;
+    font-weight: 500;
+    max-width: 1000px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background: white;
+    border-radius: 4px;
+    font-size: 18px;
+    min-width: 300px;
+    position: relative;
+}
 
 .card-outer {
     display: flex;
-    min-width: 300px;
+    min-height: 150px;
     justify-content: space-around;
+    margin-top: 30px;
+    background: white;
+    border-radius: 4px;
 }
 
 .image-and-status {
     display: flex;
     flex-direction: column;
+    justify-content: space-around;
+    text-align: center;
+    align-items: center;
+    width: 30%;
+    color: green;
+    font-weight: 600;
+    padding-left: 20px;
+    padding-right: 20px;
 }
+
+    .image-and-status img {
+        max-height: 100px;
+    }
 
 .name-achievements-technologies {
     display: flex;
     flex-direction: column;
+    width: 40%;
+    justify-content: center;
+    padding-left: 20px;
+    padding-right: 20px;
 }
 
 .rate-and-action-call {
     display: flex;
     flex-direction: column;
+    width: 30%;
+    padding-left: 20px;
+    padding-right: 20px;
+    justify-content: center;
+    transition: .03s;
+    transition: .1s;
 }
+
+    .rate-and-action-call a:hover {
+        background: black;
+        opacity: 0.8;
+        transition: .1s;
+    }
+
+    .rate-and-action-call a {
+        color: #fff;
+        max-width: 80px;
+        background: #ff6b54;
+        border: 1px solid #ff6b54;
+        border-radius: 3px;
+        outline: none;
+        font-weight: 500;
+        cursor: pointer;
+        font-size: 16px;
+        text-transform: uppercase;
+        padding: 10px 20px;
+        opacity: 1;
+        align-self: center;
+        text-decoration: none;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+.become-mentor-link {
+    color: white;
+    font-weight: 600;
+    padding: 10px;
+    position: absolute;
+    bottom: -40px;
+    margin: auto;
+}
+
+/*Profile Index */
+
+
+.profile-content {
+    font-weight: 500;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background: white;
+    border-radius: 4px;
+    font-size: 18px;
+    text-align: right;
+    padding: 30px;
+}
+
+    .profile-content > div {
+        position: relative;
+    }
+
+.header {
+    text-align: left;
+    margin-top: 15px;
+    font-size: 14px;
+    font-weight: 600;
+    opacity: 0.4;
+}
+
+.edit-button {
+    color: #fff;
+    max-width: 200px;
+    background: #ff6b54;
+    border: 1px solid #ff6b54;
+    border-radius: 3px;
+    outline: none;
+    font-weight: 500;
+    cursor: pointer;
+    font-size: 16px;
+    text-transform: uppercase;
+    padding: 16px 32px;
+    opacity: 1;
+    align-self: center;
+    margin: 0 auto;
+    margin-top: 15px;
+}
+
+.edit-circle-btn {
+    position: absolute;
+    bottom: -40px;
+    right: -40px;
+    background: #ff6b54;
+    color: #fff;
+    border-radius: 100%;
+    font-weight: 700;
+    font-size: 24px;
+    width: 75px;
+    height: 75px;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-align: center;
+    align-items: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    transition: .1s;
+}
+
+    .edit-circle-btn:hover {
+        opacity: 0.8;
+        background: black;
+        transition: .1s;
+    }
+
+.profile-index-img {
+    max-height: 100px;
+    float: left;
+    margin-top: 10px;
+}
+
+/*  Profile / Edit  */
+.profile-edit-msg {
+    color: white;
+    font-size: 24px;
+}
+
+
+input[type=submit]:hover {
+    opacity: 0.8;
+    background: black;
+    transition: .1s;
+}
+
+button {
+    outline: none;
+}
+
+    button:hover {
+        opacity: 0.8;
+        background: black;
+        transition: .1s;
+    }
+
+.index-edit-link {
+    color: white;
+}
+
+/* Login Partial */
+.logout-button {
+    color: #fff;
+    max-width: 200px;
+    background: #ff6b54;
+    border: 1px solid #ff6b54;
+    border-radius: 3px;
+    outline: none;
+    font-weight: 500;
+    cursor: pointer;
+    font-size: 12px;
+    text-transform: uppercase;
+    padding: 8px 16px;
+    opacity: 1;
+    align-self: center;
+    transition: 0.3s;
+}
+
+/* Profile / ViewProfile */
+.vp-ctr {
+    background: rgb(2,0,36);
+    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 0%, rgba(0,212,255,1) 100%);
+    height: 100vh;
+    display: flex;
+}
+
+.vp-content {
+    font-weight: 500;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background: white;
+    border-radius: 4px;
+    font-size: 18px;
+    padding: 20px;
+}
+
+    .vp-content img {
+        height: 200px;
+    }
+
+.message-mentor-btn {
+    color: #fff;
+    max-width: 80px;
+    background: #ff6b54;
+    border: 1px solid #ff6b54;
+    border-radius: 3px;
+    outline: none;
+    font-weight: 500;
+    cursor: pointer;
+    font-size: 16px;
+    text-transform: uppercase;
+    padding: 10px 20px;
+    opacity: 1;
+    align-self: center;
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+/* Message Index */
+
+.message-index-content {
+    font-weight: 500;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-radius: 4px;
+    font-size: 18px;
+    text-align: right;
+}
+
+.message-card-outer {
+    flex-direction: column;
+    min-width: 400px;
+    padding: 20px;
+    justify-content: space-around;
+    margin-top: 30px;
+    background: white;
+    border-radius: 4px;
+}
+
+    .message-card-outer div {
+        display: flex;
+        justify-content: space-between;
+    }
+
+.message-body {
+    margin-top: 30px;
+    align-self: flex-end;
+    border: 1px solid black;
+    padding: 10px;
+    color: red;
+    font-weight: 600
+}
+
+.message-index-ctr {
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+    margin-bottom: 40px;
+}
+
+
+/* Message Send */
+
+
+.send-message-btn {
+    color: #fff;
+    max-width: 200px;
+    background: #ff6b54;
+    border: 1px solid #ff6b54;
+    border-radius: 3px;
+    outline: none;
+    font-weight: 500;
+    cursor: pointer;
+    font-size: 16px;
+    text-transform: uppercase;
+    padding: 16px 32px;
+    opacity: 1;
+    align-self: center;
+    margin: 0 auto;
+    margin-top: 15px;
+}
+
+.send-message-card-outer {
+    display: flex;
+    min-height: 150px;
+    justify-content: space-around;
+    margin-top: 30px;
+    background: white;
+    border-radius: 4px;
+    padding: 30px;
+}
+
+    .send-message-card-outer div {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 10px;
+    }
+
+
+.send-message-body-ctr {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+    .send-message-body-ctr textarea {
+        height: 150px;
+        min-width: 300px;
+        margin-top: 20px;
+    }
